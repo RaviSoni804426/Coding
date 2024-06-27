@@ -1,34 +1,39 @@
-int main()
-{
-    ll m,n,i,j=0,res,x,y,p;
+#include <bits/stdc++.h>
 
-    cin>>n;
-    ll a[n];
+using namespace std;
 
-    ll sum=0, ans=0;
+const int MAX = 1e6;
 
-    fr(i, n)cin>>a[i] , ans+=a[i] , cnt[a[i] ]++;
-
-    vector<ll>v;
-    fr(i, n)
-    {
-        x=0;
-        ans-=a[i];
-        ll tmp=ans/2;
-        if(cnt[a[i]]) x=1, cnt[a[i] ]--;
-
-       if(ans%2==0 and  cnt[tmp] )v.push_back(i+1);
-
-        ans+=a[i];
-        if(x) cnt[a[i] ]++;
-    }
-
-    if(v.size())
-    {
-        cout<<v.size()<<endl;
-        fr(i, v.size())cout<<v[i]<<" ";
-    }
-    else cout<<0<<endl;
-
-
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+	
+	int n;
+	cin >> n;
+	vector<int> a(n);
+	vector<int> cnt(MAX + 1);
+	for (int i = 0; i < n; ++i) {
+		cin >> a[i];
+		++cnt[a[i]];
+	}
+	long long sum = accumulate(a.begin(), a.end(), 0ll);
+	
+	vector<int> ans;
+	for (int i = 0; i < n; ++i) {
+		sum -= a[i];
+		--cnt[a[i]];
+		if (sum % 2 == 0 && sum / 2 <= MAX && cnt[sum / 2] > 0) {
+			ans.push_back(i);
+		}
+		sum += a[i];
+		++cnt[a[i]];
+	}
+	
+	cout << ans.size() << endl;
+	for (auto it : ans) cout << it + 1 << " ";
+	cout << endl;
+	
+	return 0;
 }
