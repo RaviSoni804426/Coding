@@ -10,14 +10,12 @@ class Node{
     }
 };
 int main(){
-    Node a(10);
-    
-    Node b(20);
-   
-    Node c(30);
-    
-    a.next=&b;
-    b.next=&c;
-    cout<<b.val;
-
+    Node* a = new Node(10);
+    Node* b = new Node(20);
+    Node* c = new Node(30);
+    a->next = b;
+    b->next = c;
+    cout<<a->next
+    // Node* temp = a;
+    // while(temp!=NULL){
 }

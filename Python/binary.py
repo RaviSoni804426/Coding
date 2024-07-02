@@ -1,8 +1,8 @@
-import math
-n=int(input())
-result=bin(n)
-print(result)
-
+# import math
+# n=int(input())
+# result=bin(n)
+# print(result)
+print("ravi kumar")
 
 
 

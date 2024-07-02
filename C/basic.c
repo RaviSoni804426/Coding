@@ -17,9 +17,3 @@
 //     scanf("%f",&radius);
 //     printf("Area of the circle is: %f",3.14*radius*radius);
 //     return 0;
-#include<stdio.h>
-#include<math.h>
-int main({
-    int b,c;
-    int power=
-})
